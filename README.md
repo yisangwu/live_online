@@ -1,37 +1,15 @@
 # live_online， echarts
 
-#### 介绍
-实时 曲线展示，highchart用了，这次换echarts， 
 
-#### 软件架构
-软件架构说明
+简单的实时曲线展示，highchart用了，这次换echarts， 
 
+服务端使用api接口，每五分钟上报一次数据（一天288个5分钟间隔）。
 
-#### 安装教程
+live_online 写入redis，hash存储，每天一个key。 一天288个时间点数据，即 一个hashname 存储288个key。 value值为在线数值。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+同时，保存昨天的数据，写到文件存档（按月分目录，日期为文件名）。
 
 
-#### 码云特技
+使用方式：
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+服务端上报数据就好，请求方式，参数 在api里面。
